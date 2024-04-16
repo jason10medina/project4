@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>New Item</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+
+
+    <main>
+        <div class="new-item-form-container">
+            <h2>List a New Item</h2>
+            <form action="/items" method="post" enctype="multipart/form-data">
+                
+                <div class="form-field">
+                    <label for="title">Jersey Name:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="seller">Seller:</label>
+                    <input type="text" id="seller" name="seller" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="club">Club:</label>
+                    <input type="text" id="club" name="club" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="condition">Condition:</label>
+                    <select id="condition" name="condition" required>
+                        <option value="">Select a condition</option>
+                        <option value="New">New</option>
+                        <option value="Used">Used</option>
+                        <option value="Refurbished">Refurbished</option>
+                    </select>
+                </div>
+                
+                <div class="form-field">
+                    <label for="price">Price ($):</label>
+                    <input type="number" id="price" name="price" required min="0" step="0.01">
+                </div>
+
+                <div class="form-field">
+                    <label for="image">Image:</label>
+                    <input type="file" id="image" name="image" required>
+                </div>
+
+                <div class="form-field">
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

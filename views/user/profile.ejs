@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Profile</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <div class="listings-container">
+        <h2>My Listings</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Static placeholder for items. Replace this with dynamic data later -->
+                 <tr>
+                    <td>Item Name #1</td>
+                    <td>active</td>
+                    <td>
+                        <!-- Placeholder buttons, to be replaced with actual links in step 5 -->
+                         <button onclick="alert('Edit functionality coming soon!');">Edit</button>
+                        <button onclick="alert('Delete functionality coming soon!');">Delete</button>
+                    </td>
+                </tr>
+                <!-- Repeat for as many items as you want to display -->
+             </tbody>
+        </table>
+    </div>
+
+    <%- include('../partials/footer') %>
+</body>
+</html> 
+

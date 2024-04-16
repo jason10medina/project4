@@ -1,0 +1,171 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Register</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+
+
+    <div class="register-header-container">
+      <h1 class="register-header">Register</h1>
+  </div>
+  
+  <div class="form-container">
+      <form id="registrationForm" action="/users/register" method="post" class="registration-form">
+          <div class="form-group">
+              <label for="firstName">First Name:</label>
+              <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+              <label for="lastName">Last Name:</label>
+              <input type="text" id="lastName" name="lastName" required>
+          </div>
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+              <button type="submit" class="registration-button">Register</button>
+          </div>
+      </form>
+  </div>
+  
+  
+
+  <script>
+    $(document).ready(function() {
+      $('#registerForm').validate({
+        rules: {
+          firstName: {
+            required: true
+          },
+          lastName: {
+            required: true
+          },
+          email: {
+            required: true,
+            email: true
+          },
+          password: {
+            required: true,
+            minlength: 8
+          }
+        },
+        messages: {
+          firstName: {
+            required: 'Please enter your first name'
+          },
+          lastName: {
+            required: 'Please enter your last name'
+          },
+          email: {
+            required: 'Please enter your email address',
+            email: 'Please enter a valid email address'
+          },
+          password: {
+            required: 'Please enter a password',
+            minlength: 'Password must be at least 8 characters long'
+          }
+        }
+      });
+
+      // Submit handler to send the form data to the server
+      // (similar to the one in the login.ejs file)
+    });
+  </script>
+
+    <%- include('../partials/footer') %>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Register</title>
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+
+    <!-- Display flash messages for errors and success -->
+    <% if (locals.error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <% if (locals.success) { %>
+        <div class="alert alert-success"><%= success %></div>
+    <% } %>
+
+    <div class="form-container">
+        <h1 class="form-heading">Register</h1>
+        <form id="registrationForm" action="/users/register" method="post">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required minlength="8">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#registrationForm').validate({
+                rules: {
+                    firstName: "required",
+                    lastName: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8
+                    }
+                },
+                messages: {
+                    firstName: "Please enter your first name",
+                    lastName: "Please enter your last name",
+                    email: {
+                        required: "Please enter a valid email address",
+                        email: "Please enter a valid email address"
+                    },
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 8 characters long"
+                    }
+                }
+            });
+        });
+    </script>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

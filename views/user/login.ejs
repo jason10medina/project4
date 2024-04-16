@@ -1,0 +1,137 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Login</title>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <% if (error.length > 0) { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+  <% if (success.length > 0) { %>
+    <div class="alert alert-success"><%= success %></div>
+  <% } %>
+  
+
+    <div class="login-container">
+      <form id="myForm" action="/users/login" method="post" class="login-form">
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+              <button type="submit" class="login-button">Login</button>
+          </div>
+      </form>
+  </div>
+  
+  
+    <script>
+        $(document).ready(function() {
+          $('#myForm').validate({
+            rules: {
+              email: {
+                required: true,
+                email: true
+              },
+              password: {
+                required: true,
+                minlength: 8
+              }
+            },
+            messages: {
+              email: {
+                required: 'Please enter your email address.',
+                email: 'Please enter a valid email address.'
+              },
+              password: {
+                required: 'Please enter your password.',
+                minlength: 'Password must be at least 8 characters long.'
+              }
+            }
+          });
+        });
+    </script>
+
+    <%- include('../partials/footer') %>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Login</title>
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+
+    <!-- Flash messages for errors and successes -->
+    <% if (error && error.length > 0) { %>
+      <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+  
+  <% if (success && success.length > 0) { %>
+      <div class="alert alert-success"><%= success %></div>
+  <% } %>
+  
+    <div class="login-container">
+        <form id="loginForm" action="/users/login" method="post" class="login-form">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required minlength="8">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="login-button">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#loginForm').validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8
+                    }
+                },
+                messages: {
+                    email: {
+                        required: 'Please enter your email address.',
+                        email: 'Please enter a valid email address.'
+                    },
+                    password: {
+                        required: 'Please enter your password.',
+                        minlength: 'Password must be at least 8 characters long.'
+                    }
+                }
+            });
+        });
+    </script>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

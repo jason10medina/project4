@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= item.title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+
+
+    <main class="banner">
+        <div class="item-image">
+            <img src="<%= item.image %>" alt="Item Picture">
+        </div>
+        <div class="item-info">
+            <h1><%= item.title %></h1>
+            <p class="condition">Condition: <%= item.condition %></p>
+            <p class="price">Price: $<%= item.price %></p>
+            <p class="offers">Offers Received: <%= item.totalOffers %></p>
+            <p class="seller">Seller: <%= item.seller %></p>
+            <form>
+                <button type="submit" formmethod = "GET" formaction="/items/<%= item.id%>/edit">Edit</button>
+                <button type="submit" formmethod = "POST" formaction="/items/<%= item.id%>?_method=DELETE">Delete</button>
+            </form> 
+        </div>
+    </main>
+    
+    <%- include('partials/footer') %>
+</body>
+</html>

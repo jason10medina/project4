@@ -1,0 +1,28 @@
+<header>
+    <div class="logo">
+        <a href="/">Jersey Market</a>
+    </div>
+    <div class="search-bar">
+        <form action="/items" method="get">
+            <input type="text" name="query" placeholder="Search for jerseys...">
+            <button type="submit">🔍</button>
+        </form>
+        <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/items">Browse</a></li>
+              <% if (!isAuthenticated) { %>
+
+                <li><a href="/users/newUser">Sign Up</a></li>
+                <li><a href="/users/login">Login</a></li>
+              <% } else { %>
+
+                <li><a href="/items/new">Sell</a></li>
+                <li><a href="/users/profile">My Account</a></li>
+                <li><a href="/users/logout">Log Out</a></li>
+              <% } %>
+            </ul>
+          </nav>
+          
+    </div>
+</header>

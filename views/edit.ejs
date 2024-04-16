@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Edit Item</title>
+</head>
+<body>
+    <%- include('partials/header') %> 
+    
+    <main class="edit-form-container">
+        <form class="edit-form" action="/items/<%= item.id %>" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="PUT">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="<%= item.name %>" required>
+            </div>
+            <div>
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" value="<%= item.price %>" required>
+            </div>
+            <div>
+                <label for="club">Club:</label>
+                <input type="text" id="club" name="club" value="<%= item.club %>" required>
+            </div>
+            <div>
+                <label for="condition">Condition:</label>
+                <select id="condition" name="condition" required>
+                    <option value="New" <%= item.condition === 'New' ? 'selected' : '' %>>New</option>
+                    <option value="Used" <%= item.condition === 'Used' ? 'selected' : '' %>>Used</option>
+                </select>
+            </div>
+            <button type="submit">Update Item</button>
+        </form>
+    </main>
+
+    <%- include('partials/footer') %> 
+</body>
+</html>
